@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+    web:
+        image: nginx:alpine
+        ports:
+            - "8080:80"
+        volumes:
+            - ./dist:/var/www
+        deploy:
+            resources:
+                limits:
+                    cpus: '0.001'
+                    memory: 120M
+                    reservations:
+                        cpus: '0.0001'
+                        memory: 20M
